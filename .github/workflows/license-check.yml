@@ -1,0 +1,33 @@
+name: License Header Check
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'docs/**'
+      - 'skills/**'
+      - '**/*.md'
+      - '**/*.mdx'
+      - '.cursor/**'
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - 'docs/**'
+      - 'skills/**'
+      - '**/*.md'
+      - '**/*.mdx'
+      - '.cursor/**'
+
+jobs:
+  check-license-headers:
+    name: Check License Headers
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check license headers
+        uses: korandoru/hawkeye@v6
+        with:
+          config: engine/licenserc.toml

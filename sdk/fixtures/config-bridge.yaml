@@ -1,0 +1,29 @@
+workers:
+  - name: iii-worker-manager
+    config:
+      port: 49197
+
+  - name: iii-stream
+    config:
+      port: 3114
+      host: 0.0.0.0
+      adapter:
+        name: bridge
+        config:
+          bridge_url: ws://localhost:49198
+
+  - name: iii-state
+    config:
+      adapter:
+        name: bridge
+        config:
+          bridge_url: ws://localhost:49198
+
+  - name: iii-pubsub
+    config:
+      adapter:
+        name: local
+
+  - name: iii-observability
+    config:
+      enabled: false

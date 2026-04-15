@@ -1,0 +1,21 @@
+[workspace]
+resolver = "2"
+members = [
+  "engine",
+  "engine/function-macros",
+  "sdk/packages/rust/iii",
+  "sdk/packages/rust/iii-example",
+  "console/packages/console-rust",
+  "crates/iii-init",
+  "crates/iii-filesystem",
+  "crates/iii-network",
+  "crates/iii-worker",
+]
+
+[workspace.package]
+authors = ["Motia LLC"]
+repository = "https://github.com/iii-hq/iii"
+homepage = "https://iii.dev"
+
+[workspace.dependencies]
+iii-sdk = { path = "sdk/packages/rust/iii" }
